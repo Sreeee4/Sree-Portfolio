@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
-import { ArrowRight, ExternalLink, Github } from 'lucide-react';
-import Image from 'next/image';
+import { buttonVariants } from '@/components/ui/Button';
+import { ExternalLink, Github } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const projects = [
     {
@@ -73,15 +73,21 @@ export default function Projects() {
                                 </div>
 
                                 <div className="flex items-center gap-4 mt-auto">
-                                    <a href={project.live} target="_blank" rel="noopener noreferrer">
-                                        <Button variant="action" size="sm" className="gap-2">
-                                            Live App <ExternalLink className="w-4 h-4" />
-                                        </Button>
+                                    <a
+                                        href={project.live}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={cn(buttonVariants({ variant: 'action', size: 'sm' }), 'gap-2')}
+                                    >
+                                        Live App <ExternalLink className="w-4 h-4" />
                                     </a>
-                                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                                        <Button variant="outline" size="sm" className="gap-2">
-                                            Source <Github className="w-4 h-4" />
-                                        </Button>
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={cn(buttonVariants({ variant: 'outline', size: 'sm' }), 'gap-2')}
+                                    >
+                                        Source <Github className="w-4 h-4" />
                                     </a>
                                 </div>
                             </div>

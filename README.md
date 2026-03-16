@@ -15,10 +15,12 @@ Welcome to my personal portfolio. I am a designer and engineer focused on buildi
 ## Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 
 ### Installation
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
@@ -33,7 +35,9 @@ Welcome to my personal portfolio. I am a designer and engineer focused on buildi
    ```
 
 ## Philosophy
+
 I believe in "Designing Experiences, Engineering Systems, and Playing to Win." This portfolio reflects my commitment to merging the precision of development with the intuition of design.
 
 ---
-Built with ⚡ by Sreekanth P G.
+
+Built with care by Sreekanth P G.

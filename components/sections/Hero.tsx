@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
+import { buttonVariants } from '@/components/ui/Button';
+import { cn } from '@/lib/utils';
 
 const PHRASES = [
     "Designing Experiences.",
@@ -11,9 +13,11 @@ const PHRASES = [
 ];
 
 const SoccerBall = ({ className }: { className?: string }) => (
-    <img
+    <Image
         src="/football.svg"
         alt="Football"
+        width={120}
+        height={120}
         className={`drop-shadow-[0_0_10px_rgba(255,255,255,0.25)] ${className}`}
     />
 );
@@ -23,21 +27,26 @@ export default function Hero() {
     const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
+        const timeoutIds: ReturnType<typeof setTimeout>[] = [];
+
         const timer = setInterval(() => {
             setIsAnimating(true);
 
             // Ball rolls for 3 seconds. Change text exactly when it reaches the right side.
-            setTimeout(() => {
+            timeoutIds.push(setTimeout(() => {
                 setCurrentIndex((prev) => (prev + 1) % PHRASES.length);
-            }, 2900); // Slightly before 3s to feel synced with the end of the motion
+            }, 2900)); // Slightly before 3s to feel synced with the end of the motion
 
             // Reset animation state after the roll completes
-            setTimeout(() => {
+            timeoutIds.push(setTimeout(() => {
                 setIsAnimating(false);
-            }, 3000);
+            }, 3000));
         }, 6000); // 6s cycle: 3s roll + 3s static pause
 
-        return () => clearInterval(timer);
+        return () => {
+            clearInterval(timer);
+            timeoutIds.forEach(clearTimeout);
+        };
     }, []);
 
     return (
@@ -120,12 +129,24 @@ export default function Hero() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
                         className="flex flex-col sm:flex-row items-center gap-6 pt-4"
                     >
-                        <Button variant="action" size="lg" className="w-full sm:w-auto h-14 px-10 text-lg shadow-[0_0_30px_rgba(var(--primary),0.2)] hover:scale-105 transition-transform">
+                        <a
+                            href="#projects"
+                            className={cn(
+                                buttonVariants({ variant: 'action', size: 'lg' }),
+                                'w-full sm:w-auto h-14 px-10 text-lg shadow-[0_0_30px_rgba(30,64,175,0.2)] hover:scale-105 transition-transform'
+                            )}
+                        >
                             View Case Studies
-                        </Button>
-                        <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-10 text-lg bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 text-white transition-all duration-300">
+                        </a>
+                        <a
+                            href="#contact"
+                            className={cn(
+                                buttonVariants({ variant: 'outline', size: 'lg' }),
+                                'w-full sm:w-auto h-14 px-10 text-lg bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 text-white transition-all duration-300'
+                            )}
+                        >
                             Contact Me
-                        </Button>
+                        </a>
                     </motion.div>
 
                 </div>

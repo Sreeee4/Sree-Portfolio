@@ -1,15 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CursorRadar() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+    const cursorX = useSpring(mouseX, { stiffness: 150, damping: 15, mass: 0.5 });
+    const cursorY = useSpring(mouseY, { stiffness: 150, damping: 15, mass: 0.5 });
+    const radarX = useSpring(mouseX, { stiffness: 150, damping: 15, mass: 0.5 });
+    const radarY = useSpring(mouseY, { stiffness: 150, damping: 15, mass: 0.5 });
 
     useEffect(() => {
         const updateMousePosition = (e: MouseEvent) => {
-            setMousePosition({ x: e.clientX, y: e.clientY });
+            mouseX.set(e.clientX);
+            mouseY.set(e.clientY);
         };
 
         const handleMouseOver = (e: MouseEvent) => {
@@ -28,15 +34,17 @@ export default function CursorRadar() {
             window.removeEventListener('mousemove', updateMousePosition);
             window.removeEventListener('mouseover', handleMouseOver);
         };
-    }, []);
+    }, [mouseX, mouseY]);
 
     return (
         <>
             <motion.div
                 className="pointer-events-none fixed left-0 top-0 z-[100] h-6 w-6 rounded-full border border-action"
-                animate={{
-                    x: mousePosition.x - 12,
-                    y: mousePosition.y - 12,
+                style={{
+                    x: cursorX,
+                    y: cursorY,
+                    translateX: '-50%',
+                    translateY: '-50%',
                     scale: isHovering ? 1.5 : 1,
                 }}
                 transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.5 }}
@@ -45,15 +53,11 @@ export default function CursorRadar() {
                 <motion.div
                     layoutId="cursor-radar"
                     className="pointer-events-none fixed left-0 top-0 z-[90] h-10 w-10 rounded-full border border-action/50 bg-action/10"
-                    animate={{
-                        x: mousePosition.x - 20,
-                        y: mousePosition.y - 20,
-                    }}
-                    transition={{
-                        type: 'spring',
-                        stiffness: 150,
-                        damping: 15,
-                        mass: 0.5,
+                    style={{
+                        x: radarX,
+                        y: radarY,
+                        translateX: '-50%',
+                        translateY: '-50%',
                     }}
                 >
                     <motion.div
