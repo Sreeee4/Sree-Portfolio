@@ -8,21 +8,24 @@ const projects = [
     tech: "React, Django, PostgreSQL, Tailwind",
     description: "Built a full-stack job platform offering enhanced features beyond Indeed, targeting modern job seekers and recruiters.",
     link: "https://zrooth-jobs-orpin.vercel.app/",
-    github: "#"
+    github: "#",
+    image: "/zrooth.png"
   },
   {
     title: "TechGear",
     tech: "React, JavaScript, UI/UX Design",
     description: "Engineered an AI-powered e-commerce platform for gaming components. Optimized responsive UI achieving 95% mobile compatibility.",
     link: "https://gamming-ecommerce.vercel.app/",
-    github: "#"
+    github: "#",
+    image: "/techgear.png"
   },
   {
     title: "Turf Management System",
     tech: "HTML5, CSS3, JavaScript",
     description: "Built responsive booking website achieving 100% mobile responsiveness. Implemented dynamic availability calendar managing 100+ weekly slots.",
     link: "https://sreeee4.github.io/FootballSaga/",
-    github: "https://github.com/Sreeee4/FootballSaga"
+    github: "https://github.com/Sreeee4/FootballSaga",
+    image: "/turf.png"
   }
 ];
 
@@ -64,11 +67,11 @@ export default function Projects() {
               >
                 <div className="relative aspect-[16/10] bg-pitch-dark border border-pitch-line/10 overflow-hidden shadow-2xl transition-all duration-500 hover:border-pitch-neon/50">
                   
-                  {/* Automatic Website Screenshot Preview */}
+                  {/* Local Website Screenshot */}
                   <img 
-                    src={`https://image.thum.io/get/width/1200/crop/800/${project.link}`} 
+                    src={project.image} 
                     alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110 filter saturate-50 group-hover:saturate-100"
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110 filter saturate-50 group-hover:saturate-100 bg-pitch-dark"
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-pitch-dark via-pitch-dark/80 to-transparent opacity-100 z-10 transition-opacity duration-500"></div>
