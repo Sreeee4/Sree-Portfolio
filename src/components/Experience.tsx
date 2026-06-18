@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const careerPath = [
   {
@@ -54,11 +54,6 @@ const careerPath = [
 
 export default function Experience() {
   const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
 
   return (
     <section id="experience" ref={containerRef} className="py-32 px-6 md:px-12 relative overflow-hidden bg-pitch-dark">
