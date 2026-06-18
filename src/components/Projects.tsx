@@ -62,30 +62,33 @@ export default function Projects() {
                 key={index}
                 className="w-[85vw] md:w-[60vw] lg:w-[45vw] flex-shrink-0 group interactive relative"
               >
-                <div className="relative aspect-[16/10] bg-pitch-light border border-pitch-line/10 overflow-hidden shadow-2xl transition-all duration-500 hover:border-pitch-neon/50">
-                  <div className="absolute inset-0 bg-gradient-to-t from-pitch-dark via-pitch-dark/50 to-transparent opacity-90 z-10 transition-opacity duration-500 group-hover:opacity-70"></div>
+                <div className="relative aspect-[16/10] bg-pitch-dark border border-pitch-line/10 overflow-hidden shadow-2xl transition-all duration-500 hover:border-pitch-neon/50">
                   
-                  {/* Placeholder for future WebGL effect */}
-                  <div className="absolute inset-0 flex items-center justify-center font-mono text-pitch-line/10 z-0">
-                    [WebGL Canvas Area]
-                  </div>
+                  {/* Automatic Website Screenshot Preview */}
+                  <img 
+                    src={`https://image.thum.io/get/width/1200/crop/800/${project.link}`} 
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-all duration-700 group-hover:scale-110 filter saturate-50 group-hover:saturate-100"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-pitch-dark via-pitch-dark/80 to-transparent opacity-100 z-10 transition-opacity duration-500"></div>
                   
                   <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 z-20 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="text-pitch-neon font-mono text-xs md:text-sm uppercase tracking-widest mb-3 block">
+                    <span className="text-pitch-neon font-mono text-xs md:text-sm uppercase tracking-widest mb-3 block drop-shadow-md">
                       {project.tech}
                     </span>
-                    <h3 className="text-3xl md:text-6xl font-display font-black text-white uppercase mb-4 leading-none">
+                    <h3 className="text-3xl md:text-6xl font-display font-black text-white uppercase mb-4 leading-none drop-shadow-lg">
                       {project.title}
                     </h3>
-                    <p className="text-pitch-line/70 font-light mb-8 max-w-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <p className="text-pitch-line/90 font-light mb-8 max-w-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 drop-shadow-md">
                       {project.description}
                     </p>
                     
                     <div className="flex gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                      <a href={project.link} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white hover:text-pitch-neon transition-colors font-mono uppercase text-sm tracking-wider">
+                      <a href={project.link} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white hover:text-pitch-neon transition-colors font-mono uppercase text-sm tracking-wider bg-black/50 px-4 py-2 rounded backdrop-blur-sm border border-white/10 hover:border-pitch-neon/50">
                         <ExternalLink size={18} /> View Match
                       </a>
-                      <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white hover:text-pitch-blue transition-colors font-mono uppercase text-sm tracking-wider">
+                      <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white hover:text-pitch-blue transition-colors font-mono uppercase text-sm tracking-wider bg-black/50 px-4 py-2 rounded backdrop-blur-sm border border-white/10 hover:border-pitch-blue/50">
                         <GitBranch size={18} /> Source
                       </a>
                     </div>
