@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import CustomCursor from './components/CustomCursor';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
+import CustomCursor from './components/CustomCursor.tsx';
+import Experience from './components/Experience.tsx';
+import Projects from './components/Projects.tsx';
+import Skills from './components/Skills.tsx';
+import Contact from './components/Contact.tsx';
 import { ChevronDown } from 'lucide-react';
 
 function App() {
