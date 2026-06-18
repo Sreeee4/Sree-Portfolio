@@ -11,7 +11,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="py-32 bg-pitch-light px-6 md:px-12 relative overflow-hidden">
+    <section id="stats" className="py-32 bg-pitch-light px-6 md:px-12 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-full h-1/2 bg-gradient-to-b from-pitch-dark to-transparent opacity-50"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">

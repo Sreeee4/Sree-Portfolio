@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, GitBranch } from 'lucide-react';
 
 const projects = [
   {
@@ -85,7 +85,7 @@ export default function Projects() {
                       <ExternalLink size={16} /> View Match
                     </a>
                     <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white hover:text-pitch-blue transition-colors font-mono uppercase text-sm">
-                      <Github size={16} /> Source
+                      <GitBranch size={16} /> Source
                     </a>
                   </div>
                 </div>
