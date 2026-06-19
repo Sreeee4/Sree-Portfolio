@@ -13,7 +13,7 @@ function App() {
       
       <main className="min-h-screen font-sans">
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 mix-blend-difference text-white">
+        <nav className="fixed top-0 left-0 w-full px-6 py-4 flex justify-between items-center z-50 bg-pitch-dark/60 backdrop-blur-md border-b border-white/10 text-white shadow-lg shadow-black/20">
           <div className="font-display font-black text-2xl tracking-tighter uppercase">Sreekanth P G</div>
           <div className="flex gap-8 font-mono text-sm tracking-widest hidden md:flex">
             <a href="#projects" className="interactive vanishing-spray uppercase hover:text-pitch-neon transition-colors">Projects</a>
