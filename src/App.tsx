@@ -5,7 +5,6 @@ import Projects from './components/Projects.tsx';
 import Skills from './components/Skills.tsx';
 import Contact from './components/Contact.tsx';
 import { ChevronDown } from 'lucide-react';
-import heroImg from './assets/hero.png';
 
 function App() {
   return (
